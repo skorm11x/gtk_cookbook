@@ -28,7 +28,12 @@
 GtkWidget	*window;
 GtkWidget	*fixed1;
 GtkWidget	*echoBtn;
+GtkWidget	*radioBtn1;
+GtkWidget	*radioBtn2;
+GtkWidget	*radioBtn3;
+GtkWidget   *checkBtn1;
 GtkWidget	*label1;
+GtkWidget	*label2;
 GtkBuilder	*builder; 
 
 int main( int argc, char * argv[]){
@@ -50,6 +55,11 @@ int main( int argc, char * argv[]){
 	fixed1 = GTK_WIDGET(gtk_builder_get_object(builder, "fixed1"));
 	echoBtn = GTK_WIDGET(gtk_builder_get_object(builder, "echoBtn"));
 	label1 = GTK_WIDGET(gtk_builder_get_object(builder, "label1"));
+	label1 = GTK_WIDGET(gtk_builder_get_object(builder, "label2"));
+	radioBtn1 = GTK_WIDGET(gtk_builder_get_object(builder, "radioBtn1"));
+	radioBtn2 = GTK_WIDGET(gtk_builder_get_object(builder, "radioBtn2"));
+	radioBtn3 = GTK_WIDGET(gtk_builder_get_object(builder, "radioBtn3"));
+	checkBtn1 = GTK_WIDGET(gtk_builder_get_object(builder, "checkBtn1"));
 
 	gtk_widget_show(window);
 
@@ -58,8 +68,31 @@ int main( int argc, char * argv[]){
 	return EXIT_SUCCESS;
 }
 
-void on_echoBtn_clicked (GtkButton *b) {
-
+G_MODULE_EXPORT void on_echoBtn_clicked (GtkButton *b) {
 	gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) "Hello World");
+}
 
+G_MODULE_EXPORT void on_radioBtn1_toggled(GtkRadioButton *b) {
+	gboolean T = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b)); //built in gtk bool
+	//returns if active or not T || F return value
+	if (T) gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) "Radio 1 Active");
+	else gtk_label_set_text (GTK_LABEL(label2), (const gchar* ) "Radio 1 Not Active");
+	}
+
+G_MODULE_EXPORT void on_radioBtn2_toggled(GtkRadioButton *b) {
+	gboolean T = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b));
+	if (T) gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) "Radio 2 Active");
+	else gtk_label_set_text (GTK_LABEL(label2), (const gchar* ) "Radio 2 Not Active");
+	}
+
+G_MODULE_EXPORT void on_radioBtn3_toggled(GtkRadioButton *b) {
+	gboolean T = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b));
+	if (T) gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) "Radio 3 Active");
+	else gtk_label_set_text (GTK_LABEL(label2), (const gchar* ) "Radio 3 Not Active");
+	}
+
+G_MODULE_EXPORT void on_checkBtn1_toggled(GtkCheckButton *b){
+	gboolean T = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b));
+	if (T) gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) "check 1 Active");
+	else gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) "check 1 Not Active");
 }

@@ -4,6 +4,8 @@
   <requires lib="gtk+" version="3.20"/>
   <object class="GtkWindow" id="main_window">
     <property name="can_focus">False</property>
+    <property name="default_width">440</property>
+    <property name="default_height">250</property>
     <child type="titlebar">
       <placeholder/>
     </child>
@@ -13,37 +15,96 @@
         <property name="can_focus">False</property>
         <child>
           <object class="GtkButton" id="echoBtn">
-            <property name="label" translatable="yes">button</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
+            <property name="always_show_image">True</property>
             <signal name="clicked" handler="on_echoBtn_clicked" swapped="no"/>
+            <child>
+              <object class="GtkImage" id="echoImg">
+                <property name="visible">True</property>
+                <property name="can_focus">False</property>
+                <property name="stock">gtk-apply</property>
+                <property name="icon_size">6</property>
+              </object>
+            </child>
           </object>
           <packing>
-            <property name="x">200</property>
-            <property name="y">100</property>
+            <property name="x">150</property>
+            <property name="y">161</property>
           </packing>
         </child>
         <child>
           <object class="GtkLabel" id="label1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">label</property>
-            <property name="width_chars">0</property>
-            <property name="single_line_mode">True</property>
-            <property name="max_width_chars">0</property>
+            <property name="label" translatable="yes">Just a label</property>
+            <property name="selectable">True</property>
             <attributes>
-              <attribute name="font-desc" value="Sarai Italic 10"/>
-              <attribute name="weight" value="heavy"/>
-              <attribute name="foreground" value="#efef29292929"/>
-              <attribute name="background" value="#eeeeeeeeecec"/>
-              <attribute name="size" value="10000"/>
-              <attribute name="absolute-size" value="10000"/>
+              <attribute name="size" value="17300"/>
             </attributes>
           </object>
           <packing>
-            <property name="x">200</property>
-            <property name="y">50</property>
+            <property name="x">156</property>
+            <property name="y">42</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="radioBtn1">
+            <property name="label" translatable="yes">radio</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_radioBtn1_toggled" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">250</property>
+            <property name="y">162</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="radioBtn2">
+            <property name="label" translatable="yes">radio2</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">radioBtn1</property>
+            <signal name="toggled" handler="on_radioBtn2_toggled" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">250</property>
+            <property name="y">195</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkRadioButton" id="radioBtn3">
+            <property name="label" translatable="yes">radio3</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">False</property>
+            <property name="active">True</property>
+            <property name="draw_indicator">True</property>
+            <property name="group">radioBtn1</property>
+            <signal name="toggled" handler="on_radioBtn3_toggled" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">250</property>
+            <property name="y">228</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label2">
+            <property name="visible">True</property>
+            <property name="can_focus">False</property>
+            <property name="label" translatable="yes">second label</property>
+          </object>
+          <packing>
+            <property name="x">144</property>
+            <property name="y">95</property>
           </packing>
         </child>
       </object>
