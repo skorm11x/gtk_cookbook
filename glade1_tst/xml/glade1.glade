@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Generated with glade 3.22.1 -->
+<!-- Generated with glade 3.36.0 -->
 <interface>
   <requires lib="gtk+" version="3.20"/>
+  <object class="GtkAdjustment" id="adjustment1">
+    <property name="upper">100</property>
+    <property name="step_increment">1</property>
+    <property name="page_increment">10</property>
+  </object>
   <object class="GtkWindow" id="main_window">
     <property name="can_focus">False</property>
-    <property name="default_width">440</property>
-    <property name="default_height">250</property>
-    <child type="titlebar">
-      <placeholder/>
-    </child>
     <child>
       <object class="GtkFixed" id="fixed1">
         <property name="visible">True</property>
@@ -18,40 +18,38 @@
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">True</property>
-            <property name="always_show_image">True</property>
             <signal name="clicked" handler="on_echoBtn_clicked" swapped="no"/>
             <child>
               <object class="GtkImage" id="echoImg">
                 <property name="visible">True</property>
                 <property name="can_focus">False</property>
-                <property name="stock">gtk-apply</property>
+                <property name="stock">gtk-copy</property>
                 <property name="icon_size">6</property>
               </object>
             </child>
           </object>
           <packing>
-            <property name="x">150</property>
-            <property name="y">161</property>
+            <property name="x">183</property>
+            <property name="y">171</property>
           </packing>
         </child>
         <child>
           <object class="GtkLabel" id="label1">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Just a label</property>
-            <property name="selectable">True</property>
+            <property name="label" translatable="yes">label</property>
             <attributes>
               <attribute name="size" value="17300"/>
             </attributes>
           </object>
           <packing>
-            <property name="x">156</property>
-            <property name="y">42</property>
+            <property name="x">5</property>
+            <property name="y">5</property>
           </packing>
         </child>
         <child>
           <object class="GtkRadioButton" id="radioBtn1">
-            <property name="label" translatable="yes">radio</property>
+            <property name="label" translatable="yes">radiobutton</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
@@ -60,13 +58,13 @@
             <signal name="toggled" handler="on_radioBtn1_toggled" swapped="no"/>
           </object>
           <packing>
-            <property name="x">250</property>
-            <property name="y">162</property>
+            <property name="x">310</property>
+            <property name="y">58</property>
           </packing>
         </child>
         <child>
           <object class="GtkRadioButton" id="radioBtn2">
-            <property name="label" translatable="yes">radio2</property>
+            <property name="label" translatable="yes">radiobutton</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
@@ -76,13 +74,13 @@
             <signal name="toggled" handler="on_radioBtn2_toggled" swapped="no"/>
           </object>
           <packing>
-            <property name="x">250</property>
-            <property name="y">195</property>
+            <property name="x">310</property>
+            <property name="y">80</property>
           </packing>
         </child>
         <child>
           <object class="GtkRadioButton" id="radioBtn3">
-            <property name="label" translatable="yes">radio3</property>
+            <property name="label" translatable="yes">radiobutton</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
@@ -92,19 +90,19 @@
             <signal name="toggled" handler="on_radioBtn3_toggled" swapped="no"/>
           </object>
           <packing>
-            <property name="x">250</property>
-            <property name="y">228</property>
+            <property name="x">310</property>
+            <property name="y">111</property>
           </packing>
         </child>
         <child>
           <object class="GtkLabel" id="label2">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
-            <property name="label" translatable="yes">second label</property>
+            <property name="label" translatable="yes">label</property>
           </object>
           <packing>
-            <property name="x">144</property>
-            <property name="y">95</property>
+            <property name="x">184</property>
+            <property name="y">13</property>
           </packing>
         </child>
         <child>
@@ -117,11 +115,38 @@
             <signal name="toggled" handler="on_checkBtn1_toggled" swapped="no"/>
           </object>
           <packing>
-            <property name="x">250</property>
-            <property name="y">127</property>
+            <property name="x">310</property>
+            <property name="y">25</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkToggleButton" id="toggleBtn">
+            <property name="label" translatable="yes">toggle</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <signal name="toggled" handler="on_toggleBtn_toggled" swapped="no"/>
+          </object>
+          <packing>
+            <property name="x">5</property>
+            <property name="y">150</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkSpinButton" id="spin1">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">adjustment1</property>
+          </object>
+          <packing>
+            <property name="x">22</property>
+            <property name="y">199</property>
           </packing>
         </child>
       </object>
+    </child>
+    <child type="titlebar">
+      <placeholder/>
     </child>
   </object>
 </interface>

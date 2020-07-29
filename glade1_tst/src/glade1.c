@@ -34,15 +34,14 @@ GtkWidget	*radioBtn3;
 GtkWidget   *checkBtn1;
 GtkWidget	*label1;
 GtkWidget	*label2;
+GtkWidget	*toggle1;
+GtkWidget	*spin1;
 GtkBuilder	*builder; 
 
 int main( int argc, char * argv[]){
 
     gtk_init(&argc, &argv); // init Gtk
 
-//---------------------------------------------------------------------
-// establish contact with xml code used to adjust widget settings
-//---------------------------------------------------------------------
  
 	builder = gtk_builder_new_from_file ("../xml/glade1.glade");
  
@@ -60,6 +59,8 @@ int main( int argc, char * argv[]){
 	radioBtn2 = GTK_WIDGET(gtk_builder_get_object(builder, "radioBtn2"));
 	radioBtn3 = GTK_WIDGET(gtk_builder_get_object(builder, "radioBtn3"));
 	checkBtn1 = GTK_WIDGET(gtk_builder_get_object(builder, "checkBtn1"));
+	toggle1 = GTK_WIDGET(gtk_builder_get_object(builder, "toggle1"));
+	spin1 = GTK_WIDGET(gtk_builder_get_object(builder, "spin1"));
 
 	gtk_widget_show(window);
 
@@ -69,7 +70,10 @@ int main( int argc, char * argv[]){
 }
 
 G_MODULE_EXPORT void on_echoBtn_clicked (GtkButton *b) {
-	gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) "Hello World");
+	char tmp[128];
+	gdouble val = gtk_spin_button_get_value (GTK_SPIN_BUTTON(spin1));
+	sprintf(tmp, "spin=%d", (int) val);
+	gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) tmp);
 }
 
 G_MODULE_EXPORT void on_radioBtn1_toggled(GtkRadioButton *b) {
@@ -96,3 +100,15 @@ G_MODULE_EXPORT void on_checkBtn1_toggled(GtkCheckButton *b){
 	if (T) gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) "check 1 Active");
 	else gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) "check 1 Not Active");
 }
+
+G_MODULE_EXPORT void on_check1_toggled(GtkCheckButton *b) {
+	gboolean T = gtk_toggle_button_get_active(GTK_TOGGLE_BUTTON(b));
+	if (T) gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) "Check 1 Active");
+	else gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) "Check 1 Not Active");
+	}
+
+G_MODULE_EXPORT void on_toggle1_toggled(GtkToggleButton *b) {
+	gboolean T = gtk_toggle_button_get_active(b);
+	if (T) gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) "Toggle 1 Active");
+	else gtk_label_set_text (GTK_LABEL(label1), (const gchar* ) "Toggle 1 Not Active");
+	}
