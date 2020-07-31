@@ -39,6 +39,9 @@ GtkWidget	*spin1;
 GtkWidget	*combo1;
 GtkWidget	*entry1;
 GtkWidget   *color1;
+GtkWidget   *font1;
+GtkWidget	*volume1;
+GtkWidget	*scroll1;
 GtkWidget   *switch1;
 
 
@@ -70,7 +73,10 @@ int main( int argc, char * argv[]){
 	switch1 = GTK_WIDGET(gtk_builder_get_object(builder, "switch1"));
 	combo1 = GTK_WIDGET(gtk_builder_get_object(builder, "combo1"));
 	entry1 = GTK_WIDGET(gtk_builder_get_object(builder, "entry1"));
+	font1 = GTK_WIDGET(gtk_builder_get_object(builder, "font1"));
 	color1 = GTK_WIDGET(gtk_builder_get_object(builder, "color1"));
+	volume1 = GTK_WIDGET(gtk_builder_get_object(builder, "volume1"));
+	scroll1 = GTK_WIDGET(gtk_builder_get_object(builder, "scroll1"));
 
 	gtk_widget_show(window);
 
@@ -152,4 +158,25 @@ G_MODULE_EXPORT void on_file1_file_set(GtkFileChooserButton *f) {
 	printf("file name = %s\n", gtk_file_chooser_get_filename (GTK_FILE_CHOOSER(f)) );
 	printf("folder name = %s\n", gtk_file_chooser_get_current_folder (GTK_FILE_CHOOSER(f)) );
 
+}
+
+G_MODULE_EXPORT void on_font1_font_set(GtkFontButton *f1) {
+	printf("font name = %s\n", gtk_font_button_get_font_name (f1) );
+	//set the font of something else etc. 
+}
+
+G_MODULE_EXPORT void on_volume1_value_changed (GtkVolumeButton *v1) {
+
+	/*******************************************************************
+	The function:
+		void gtk_scale_button_set_value (GtkScaleButton *, gdouble)
+	can be used to set the volume control to a particular value.
+	********************************************************************/
+
+	printf("volume scale = %f\n", gtk_scale_button_get_value(GTK_SCALE_BUTTON(v1)) );
+}
+
+G_MODULE_EXPORT void on_scroll1_value_changed(GtkRange *r) {
+	gdouble x = gtk_range_get_value (r);
+	printf("scroll = %d\n", (int) x );
 }
