@@ -47,6 +47,8 @@ GtkWidget   *switch1;
 
 GtkBuilder	*builder; 
 
+//TODO: Win10 .dll + src tree reconfigure
+
 int main( int argc, char * argv[]){
 
     gtk_init(&argc, &argv); // init Gtk
