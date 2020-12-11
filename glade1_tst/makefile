@@ -5,7 +5,7 @@ BINDIR = ./bin
 XMLDIR = ./xml
 
 glade1: $(SRCDIR)/glade1.c
-	$(CC) $(SRCDIR)/glade1.c -lm `pkg-config --cflags --libs gtk+-3.0` -export-dynamic -o $(BINDIR)/glade1
+	$(CC) $(SRCDIR)/glade1.c -rdynamic  -lm `pkg-config --cflags --libs gtk+-3.0` -export-dynamic -o $(BINDIR)/glade1
 
 run:
 	./bin/glade1
